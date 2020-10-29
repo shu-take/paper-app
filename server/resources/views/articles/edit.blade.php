@@ -11,17 +11,17 @@
     </div>
 @endif
 <h1>論文編集</h1>
-<form action="/articles/{{ $item->id }}" method="post">
+<form action="/articles/{{ $article->id }}" method="post">
     @csrf
     @method('PUT')
-    <input type="hidden" name="id" value="{{ $item->id }}">
+    <input type="hidden" name="id" value="{{ $article->id }}">
     <p>
         タイトル:<br>
-        <input type="text" name="title" value="{{ $item->title }}">
+        <input type="text" name="title" value="{{ $article->title }}">
     </p>
     <p>
         論文:<br>
-        <textarea name="body" rows="8" cols="80">{{ $item->body }}</textarea><br>
+        <textarea name="body" rows="8" cols="80">{{ $article->body }}</textarea><br>
     </p>
     <input type="submit" value="更新">
 </form>

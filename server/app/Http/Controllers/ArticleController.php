@@ -10,17 +10,17 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $items = Article::all();
-        return view('articles.index', compact('items'));
+        $articles = Article::all();
+        return view('articles.index', compact('articles'));
     }
     public function store(ArticleRequest $request)
     {
-        $item = new Article;
-        $item->title = $request->title;
-        $item->body = $request->body;
-        $item->timestamps = false;
+        $article = new Article;
+        $article->title = $request->title;
+        $article->body = $request->body;
+        $article->timestamps = false;
 
-        $item->save();
+        $article->save();
 
         return redirect('/articles');
     }
@@ -30,31 +30,31 @@ class ArticleController extends Controller
     }
     public function show($id)
     {
-        $item = Article::find($id);
-        return view('articles.show', compact('item'));
+        $article = Article::find($id);
+        return view('articles.show', compact('article'));
     }
     public function update(ArticleRequest $request, $id)
     {
-        $item = Article::find($id);
+        $article = Article::find($id);
 
-        $item->title = $request->title;
-        $item->body = $request->body;
-        $item->timestamps = false;
+        $article->title = $request->title;
+        $article->body = $request->body;
+        $article->timestamps = false;
 
-        $item->save();
+        $article->save();
 
         return redirect('/articles');
     }
     public function destroy($id)
     {
-        $item = Article::find($id);
-        $item->delete();
+        $article = Article::find($id);
+        $article->delete();
         return redirect('/articles');
     }
     public function edit($id)
     {
-        $item = Article::find($id);
-        return view('articles.edit', compact('item'));
+        $article = Article::find($id);
+        return view('articles.edit', compact('article'));
     }
     
     
